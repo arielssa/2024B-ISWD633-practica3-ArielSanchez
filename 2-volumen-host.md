@@ -9,26 +9,35 @@ docker run -d --name <nombre contenedor> -v <ruta carpeta host>:<ruta carpeta co
 
 ### Crear un volumen tipo host con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
 ![Volúmenes](img/volumen-host.PNG)
-# COMPLETAR CON EL COMANDO
+
+´´´
+docker run -d -p 80:80 --name srv-web -v C:\Users\USUARIO\Desktop\nginx\html:/usr/share/nginx/html nginx:alpine
+´´´
 
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+# La página muestra un error 403 Forbidden, el cual es un error que arroja el servidor provocado por una petición del navegador del usuario que es considerada errónea.
 
 ### ¿Qué pasa con el archivo index.html del contenedor?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+# El archivo index.html no existe, por ende al realizar una petición desde el cliente (navegador), el servidor no lo va a encontrar.
 
 ### Ir a https://html5up.net/ y descargar un template gratuito, descomprirlo dentro de tu computador en la carpeta html
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+# Añadiendo el archivo index.html en el directorio especificado del host, ahora al intentar acceder al servidor muestra el archivo descargado.
 
 ### Eliminar el contenedor
-# COMPLETAR CON EL COMANDO
+
+´´´
+docker stop srv-web
+´´´
+´´´
+docker rm srv-web
+´´´
 
 ### ¿Qué sucede al crear nuevamente el mismo contenedor con volumen de tipo host a los directorios definidos anteriormente?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+# Ahora muestra sin problemas el archivo index.html, pues los directorios son los mismos y no se han eliminado estos.
 
 ### ¿Qué hace el comando pwd?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+# El comando pwd muestra por consola la ruta desde donde se está trabajando actualmente.
 Si quieres incluir el comando pwd dentro de un comando de Docker, lo puedes hacer de diferentes maneras dependiendo del shell que estés utilizando.
 
 
